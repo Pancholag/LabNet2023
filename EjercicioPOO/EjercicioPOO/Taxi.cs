@@ -12,12 +12,12 @@ namespace EjercicioPOO
         {
         }
 
-        public override void avanzar()
+        public override void Avanzar()
         {
             Console.WriteLine("Soy un taxi avanzando");
         }
 
-        public override void detenerse()
+        public override void Detenerse()
         {
             Console.WriteLine("Soy un taxi deteniendome");
         }

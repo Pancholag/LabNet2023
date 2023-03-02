@@ -15,10 +15,10 @@ namespace EjercicioPOO
             _pasajeros = pasajeros;
         }
 
-        public abstract void avanzar();
-        public abstract void detenerse();
+        public abstract void Avanzar();
+        public abstract void Detenerse();
 
-        public void informarCantidadPasajeros()
+        public void InformarCantidadPasajeros()
         {
             Console.WriteLine($"LLevo {_pasajeros} pasajero/s");
         }

@@ -8,6 +8,6 @@ namespace EjercicioPOO
 {
     internal interface ICantidadPasajeros
     {
-        void informarCantidadPasajeros();
+        void InformarCantidadPasajeros();
     }
 }
