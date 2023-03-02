@@ -12,25 +12,20 @@ namespace EjercicioPOO
         {
             ICollection<TransportePublico> transportes = new List<TransportePublico>(10);
 
-            Random r;
-            int offset = 5;
-
             Console.WriteLine("generando omnibuses");
             
             for (var i = 0; i < 5; i++)
             {
-                r = new Random(i);
-                //Console.WriteLine(r.Next(0, 30));
-                transportes.Add(new Omnibus(r.Next(0, 30)));   
+                Console.WriteLine("ingrese la cantidad de pasajeros");
+                transportes.Add(new Omnibus(int.Parse(Console.ReadLine())));   
             }
 
             Console.WriteLine("generando taxis");
 
             for (var i = 0; i < 5; i++)
             {
-                r = new Random(i + offset);
-                //Console.WriteLine(r.Next(0, 4));
-                transportes.Add(new Taxi(r.Next(0, 4)));
+                Console.WriteLine("ingrese la cantidad de pasajeros");
+                transportes.Add(new Taxi(int.Parse(Console.ReadLine())));
             }
 
             foreach (var item in transportes)
