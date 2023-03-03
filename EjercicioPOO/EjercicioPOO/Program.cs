@@ -12,14 +12,26 @@ namespace EjercicioPOO
         {
             ICollection<TransportePublico> transportes = new List<TransportePublico>(10);
 
+            GenerarOmnibuses(transportes);
+            GenerarTaxis(transportes);
+            MostrarPasajeros(transportes);
+
+            Console.ReadLine();
+        }
+
+        static public void GenerarOmnibuses(ICollection<TransportePublico> transportes)
+        {
             Console.WriteLine("generando omnibuses (max 30 pasajeros)");
-            
+
             for (var i = 0; i < 5; i++)
             {
                 Console.WriteLine("ingrese la cantidad de pasajeros");
-                transportes.Add(new Omnibus(LeerNumeroMenorA(30)));   
+                transportes.Add(new Omnibus(LeerNumeroMenorA(30)));
             }
+        }
 
+        private static void GenerarTaxis(ICollection<TransportePublico> transportes)
+        {
             Console.WriteLine("generando taxis (max 4 pasajeros)");
 
             for (var i = 0; i < 5; i++)
@@ -27,15 +39,16 @@ namespace EjercicioPOO
                 Console.WriteLine("ingrese la cantidad de pasajeros");
                 transportes.Add(new Taxi(LeerNumeroMenorA(4)));
             }
-
+        }
+        
+        private static void MostrarPasajeros(ICollection<TransportePublico> transportes)
+        {
             Console.WriteLine("mostrando cantidad de pasajeros de los transportes");
 
             foreach (var item in transportes)
             {
                 item.InformarCantidadPasajeros();
             }
-
-            Console.ReadLine();
         }
 
         static public int LeerNumeroMenorA(int numero) 
