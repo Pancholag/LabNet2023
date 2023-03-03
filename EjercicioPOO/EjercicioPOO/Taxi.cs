@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EjercicioPOO
 {
-    internal class Taxi : TransportePublico 
+    public class Taxi : TransportePublico 
     {
         public Taxi(int pasajeros) : base(pasajeros)
         {

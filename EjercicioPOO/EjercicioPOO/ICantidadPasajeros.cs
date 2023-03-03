@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EjercicioPOO
 {
-    internal interface ICantidadPasajeros
+    public interface ICantidadPasajeros
     {
         void InformarCantidadPasajeros();
     }

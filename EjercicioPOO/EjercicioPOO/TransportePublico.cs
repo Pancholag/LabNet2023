@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EjercicioPOO
 {
-    internal abstract class TransportePublico : ICantidadPasajeros
+    public abstract class TransportePublico : ICantidadPasajeros
     {
         private int _pasajeros;
 
