@@ -16,11 +16,20 @@ namespace EjercicioPOO2
         /// <exception cref="TypedDataSetGeneratorException"></exception>
         public static void ExceptionThrower() 
         {
-            throw new TypedDataSetGeneratorException("Excepcion con el nombre mas largo que vi");
+            Console.WriteLine("Escriba un mensaje personalizado o vea el mensaje por defecto");
+
+            var mensaje = Console.ReadLine();
+
+            if (mensaje != "")
+                throw new TypedDataSetGeneratorException(mensaje);
+
+            throw new TypedDataSetGeneratorException();
         }
 
         public static void TeaPotThrower()
         {
+            Console.WriteLine("Lanzando \"I am a tea pot exception\" ");
+
             throw new IAmATeaPotException();
         }
     }
