@@ -28,29 +28,11 @@ namespace EjercicioPOO2
         {
             double num = 0;
 
-            try
-            {
-                num = LeerNumero();
+            num = LeerNumero();
 
-                Console.WriteLine($"Dividiendo {num} / 0");
+            Console.WriteLine($"Dividiendo {num} / 0");
 
-            try
-            {
-                num = num / 0;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine($"Mensaje de la interrupcion:\n -{e.Message}");
-            }
-            finally
-            {
-                Console.WriteLine("Operacion intentada");
-            }
-            }
-            catch (FormatException e)
-            {
-                Console.WriteLine(e.Message);
-            }
+            num = num / 0;
         }
 
         /// <summary>

@@ -72,11 +72,29 @@ namespace EjercicioPOO2
             Console.WriteLine();
         }
 
-        private static void Ejercicio1() 
+        private static void Ejercicio1()
         {
-            LabNetPractica2.ExcepcionDivision();
-        }
+            try
+            {
+                try
+                {
+                    LabNetPractica2.ExcepcionDivision();
+                }
+                catch (DivideByZeroException e)
+                {
+                    Console.WriteLine($"Mensaje de la interrupcion:\n -{e.Message}");
+                }
+                finally
+                {
+                    Console.WriteLine("Operacion intentada");
+                }
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine($"Mensaje de la interrupcion:\n -{e.Message}");
+            }
 
+        }       
         private static void Ejercicio2() 
         {
             try
