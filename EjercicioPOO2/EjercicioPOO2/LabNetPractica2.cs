@@ -32,7 +32,7 @@ namespace EjercicioPOO2
 
             Console.WriteLine($"Dividiendo {num} / 0");
 
-            num = num / 0;
+            throw new DivideByZeroException();
         }
 
         /// <summary>
