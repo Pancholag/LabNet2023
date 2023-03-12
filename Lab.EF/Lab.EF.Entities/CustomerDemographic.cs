@@ -6,28 +6,22 @@ namespace Lab.EF.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Categories
+    public partial class CustomerDemographic
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Categories()
+        public CustomerDemographic()
         {
-            Products = new HashSet<Products>();
+            Customers = new HashSet<Customer>();
         }
 
         [Key]
-        public int CategoryID { get; set; }
-
-        [Required]
-        [StringLength(15)]
-        public string CategoryName { get; set; }
+        [StringLength(10)]
+        public string CustomerTypeID { get; set; }
 
         [Column(TypeName = "ntext")]
-        public string Description { get; set; }
-
-        [Column(TypeName = "image")]
-        public byte[] Picture { get; set; }
+        public string CustomerDesc { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Products> Products { get; set; }
+        public virtual ICollection<Customer> Customers { get; set; }
     }
 }
