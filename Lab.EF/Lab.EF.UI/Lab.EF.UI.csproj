@@ -53,7 +53,7 @@
     <Compile Include="Menu.cs" />
     <Compile Include="MenuCategories.cs" />
     <Compile Include="MenuEntidadBase.cs" />
-    <Compile Include="MneuCustomers.cs" />
+    <Compile Include="MneuShippers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

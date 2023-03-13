@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Lab.EF.Entities;
+using Lab.EF.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,24 +10,45 @@ namespace Lab.EF.UI
 {
     internal class MenuCategories : MenuEntidadBase
     {
-        public override void Agregar()
-        {
-            throw new NotImplementedException();
-        }
+        private CategoriesLogic categoriesLogic;
 
-        public override void Modificar()
+        public MenuCategories()
         {
-            throw new NotImplementedException();
-        }
-
-        public override void Remover()
-        {
-            throw new NotImplementedException();
+            categoriesLogic = new CategoriesLogic();
         }
 
         public override void Ver()
         {
-            throw new NotImplementedException();
+            foreach (Category c in categoriesLogic.GetAll())
+            {
+                Console.WriteLine(c.CategoryName);
+            }
+        }
+        public override void Agregar()
+        {
+            Category category = new Category();
+            Console.WriteLine("Agregar una categoria");
+
+            var aux = categoriesLogic.GenerateId();
+            category.CategoryID = aux;
+            category.CategoryName = Console.ReadLine();
+
+            categoriesLogic.Add(category);
+
+        }
+        public override void Remover()
+        {
+            Console.WriteLine("Ingrese el ID de la categoria a Remover");
+            var str = int.Parse(Console.ReadLine());
+
+            categoriesLogic.Remove(str);
+        }
+        public override void Modificar()
+        {
+            Console.WriteLine("Ingrese el ID de la categoria a Modificar");
+            var category = categoriesLogic.Find(int.Parse(Console.ReadLine()));
+
+            Console.WriteLine(category);
         }
     }
 }

@@ -32,7 +32,7 @@ namespace Lab.EF.UI
                 Console.WriteLine($"la seleccion fue {seleccion}");
             } while (seleccion != 0);
 
-
+            
 
         }
         public static int LeerNumero(int max)

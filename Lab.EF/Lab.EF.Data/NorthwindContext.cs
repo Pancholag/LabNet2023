@@ -13,7 +13,7 @@ namespace Lab.EF.Data
         {
         }
 
-        public virtual DbSet<Categorie> Categories { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<CustomerDemographic> CustomerDemographics { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
