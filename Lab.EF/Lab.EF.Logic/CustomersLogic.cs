@@ -22,9 +22,14 @@ namespace Lab.EF.Logic
 
         public void RemoveCustomer(String customerId)
         {
-            Customer c = _northWindContext.Customers.Find(customerId);
+            Customer c = BuscarCliente(customerId);
             _northWindContext.Customers.Remove(c);
             _northWindContext.SaveChangesAsync();
+        }
+
+        public Customer BuscarCliente(String customerId)
+        {
+            return _northWindContext.Customers.Find(customerId);
         }
     }
 }

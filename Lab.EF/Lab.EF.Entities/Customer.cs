@@ -55,5 +55,27 @@ namespace Lab.EF.Entities
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CustomerDemographic> CustomerDemographics { get; set; }
+
+        public override string ToString() 
+        {
+            var ret = $"Nombre de la compania :   {CompanyName} " +
+                    $"\nNombre de contacto :    {ContactName}" +
+                    $"\nTitulo de contacto :    {ContactTitle}" +
+                    $"\nDireccion :             {Address}" +
+                    $"\nCiudad :                {City}" +
+                    $"\nRegion :                {Region}" +
+                    $"\nCodigo Postal :         {PostalCode}" +
+                    $"\nPais :                  {Country}" +
+                    $"\nTelefono :              {Phone}" +
+                    $"\nFax :                   {Fax}" +
+                    $"\nOrdenes :";
+
+            foreach (var item in Orders) 
+            {
+                ret += $"\n   ID de la orden {item}";
+            }
+
+            return ret;
+        }
     }
 }

@@ -12,29 +12,15 @@ namespace Lab.EF.UI
     {
         static void Main(string[] args)
         {
-            /*VerClientes();
-            Console.WriteLine();
-            AgregarCliente();
-
-            Console.ReadKey();
-            Console.WriteLine();
-            VerClientes();*/
-            
-            RemoverCliente();
-
-            Console.WriteLine();
-            Console.ReadKey();
-
-            VerClientes();
-
+            ModificarCliente();
             Console.ReadKey();
         }
 
         public static void VerClientes()
         {
-            CustomerLogic customersLogic = new CustomerLogic();
+            CustomerLogic customerLogic = new CustomerLogic();
 
-            foreach (Customer c in customersLogic.GetAll())
+            foreach (Customer c in customerLogic.GetAll())
             {
                 Console.WriteLine(c.CompanyName);
             }
@@ -42,34 +28,46 @@ namespace Lab.EF.UI
 
         public static void AgregarCliente() 
         {
-            CustomerLogic customersLogic = new CustomerLogic();
-            Customer customers = new Customer();
+            CustomerLogic customerLogic = new CustomerLogic();
+            Customer customer = new Customer();
 
             Console.WriteLine("Agregar un cliente");
 
             //Datos no relevantes reciven un string vacio como placeholder
-            customers.CompanyName = Console.ReadLine();
-            customers.CustomerID = customers.CompanyName;
-            customers.ContactName = "";
-            customers.ContactTitle = "";
-            customers.Address = "";
-            customers.City = "";
-            customers.Region = "";
-            customers.PostalCode = "";
-            customers.Country = "";
-            customers.Phone = "";
-            customers.Fax = "";
+            customer.CompanyName = Console.ReadLine();
+            customer.CustomerID = customer.CompanyName;
+            customer.ContactName = "";
+            customer.ContactTitle = "";
+            customer.Address = "";
+            customer.City = "";
+            customer.Region = "";
+            customer.PostalCode = "";
+            customer.Country = "";
+            customer.Phone = "";
+            customer.Fax = "";
 
-            customersLogic.AddCustomer(customers);
+            customerLogic.AddCustomer(customer);
             
         }
 
         public static void RemoverCliente()
         {
-            Console.WriteLine("Ingrese el nombre del cliente a Remover");
+            CustomerLogic customerLogic = new CustomerLogic();
+
+            Console.WriteLine("Ingrese el ID del cliente a Remover");
             var str = Console.ReadLine();
-            CustomerLogic customersLogic = new CustomerLogic();
-            customersLogic.RemoveCustomer(str);
+            
+            customerLogic.RemoveCustomer(str);
+        }
+
+        public static void ModificarCliente()
+        {
+            CustomerLogic customerLogic = new CustomerLogic();
+
+            Console.WriteLine("Ingrese el ID del cliente a Modificar");
+            var customer = customerLogic.BuscarCliente(Console.ReadLine());
+
+            Console.WriteLine(customer);
         }
     }
 }

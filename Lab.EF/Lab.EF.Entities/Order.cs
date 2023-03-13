@@ -59,5 +59,10 @@ namespace Lab.EF.Entities
         public virtual ICollection<Order_Details> Order_Details { get; set; }
 
         public virtual Shipper Shippers { get; set; }
+
+        public override string ToString()
+        {
+            return OrderID.ToString();
+        }
     }
 }
