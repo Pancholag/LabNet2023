@@ -12,17 +12,12 @@ namespace Lab.EF.UI
     {
         static void Main(string[] args)
         {
-            var i = 0;
-            Console.WriteLine(i++);
-            Console.WriteLine(++i);
-            Console.WriteLine(i);
-            Console.ReadKey();
-            /*Console.WriteLine("Bienvenido a la aplicacion de manejo de NorthWind Data Base");
+            Console.WriteLine("Bienvenido a la aplicacion de manejo de NorthWind Data Base");
 
             Menu.MenuPrincipal();
 
             Console.WriteLine("Hasta la proxima");
-            Console.ReadKey();*/
+            Console.ReadKey();
         }
     }
 }

@@ -8,44 +8,43 @@ namespace Lab.EF.UI
 {
     public class Menu
     {
-        private static readonly int _cantEntidades = 11;
+        private static readonly int _cantEntidades = 2;
         public static void MenuPrincipal()
         {
+            MenuEntidadBase menu = null;
             int seleccion;
             do
             {
                 Console.WriteLine(
                     "Con que entidad desea interactuar:" +
                     "\n1- Categoria" +
-                    "\n2- Cliente" +
-                    "\n3- Demografia de Cliente" +
-                    "\n4- Empleado" +
-                    "\n5- Orden" +
-                    "\n6- Detalles de orden" +
-                    "\n7- Producto" +
-                    "\n8- Region" +
-                    "\n9- Transportista" +
-                    "\n10- Proveedor" +
-                    "\n11- Territorio" +
+                    "\n2- Transportista" +
                     "\n0- Terminar Aplicacion");
-                seleccion = LeerNumero(_cantEntidades);
-                Console.WriteLine($"la seleccion fue {seleccion}");
+                seleccion = Utilities.LeerNumero(_cantEntidades);
+
+                switch (seleccion)
+                {
+                    case 1:
+                        menu = new MenuCategories();
+                        break;
+                    case 2:
+                        menu = new MenuShippers();
+                        break;
+                }
+
+                if (menu != null)
+                {
+                    try
+                    {
+                        menu.Ejecutar();
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
+                }
+
             } while (seleccion != 0);
-
-            
-
         }
-        public static int LeerNumero(int max)
-        {
-            int aux;
-
-            while ((!int.TryParse(Console.ReadLine(), out aux) || (aux > max || aux < 0)))
-            {
-                Console.WriteLine("Ingreso por teclado invalido, intente nuevamente");
-            }
-
-            return aux;
-        }
-
     }
 }
