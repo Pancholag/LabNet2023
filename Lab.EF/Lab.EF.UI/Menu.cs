@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lab.EF.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace Lab.EF.UI
             int seleccion;
             do
             {
+                
                 Console.WriteLine(
                     "Con que entidad desea interactuar:" +
                     "\n1- Categoria" +
@@ -34,16 +36,11 @@ namespace Lab.EF.UI
 
                 if (menu != null)
                 {
-                    try
-                    {
-                        menu.Ejecutar();
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine(e.Message);
-                    }
+                    menu.Ejecutar();
+                    menu = null;
                 }
 
+                Console.Clear();
             } while (seleccion != 0);
         }
     }

@@ -29,5 +29,14 @@ namespace Lab.EF.Entities
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }
+
+        public override string ToString()
+        {
+            var str = "ID: " + CategoryID +
+                "\nNombre de la categoria: " + CategoryName +
+                "\nDescripcion de la categoria: " + Description +
+                "\nCantidad de productos: " + Products.Count;
+            return str;
+        }
     }
 }

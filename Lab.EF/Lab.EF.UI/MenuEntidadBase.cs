@@ -19,6 +19,7 @@ namespace Lab.EF.UI
             int seleccion;
             do
             {
+                Console.Clear();
                 Console.WriteLine(
                     "Que desea hacer:" +
                     "\n1- Ver todos los registros" +
@@ -26,26 +27,34 @@ namespace Lab.EF.UI
                     "\n3- Agregar un registro" +
                     "\n4- Remover un registro" +
                     "\n5- Modificar un registro" +
-                    "\n0- Salir");
+                    "\n0- Volver al menu principal");
                 seleccion = Utilities.LeerNumero(MenuEntidadBase.cantMetodos);
 
-                switch (seleccion)
+                try
                 {
-                    case 1:
-                        VerTodos();
-                        break;
-                    case 2:
-                        VerDetalle();
-                        break;
-                    case 3:
-                        Agregar();
-                        break;
-                    case 4:
-                        Remover();
-                        break;
-                    case 5:
-                        Modificar();
-                        break;
+                    switch (seleccion)
+                    {
+                        case 1:
+                            VerTodos();
+                            break;
+                        case 2:
+                            VerDetalle();
+                            break;
+                        case 3:
+                            Agregar();
+                            break;
+                        case 4:
+                            Remover();
+                            break;
+                        case 5:
+                            Modificar();
+                            break;
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message + "\npresione enter para volver al menu");
+                    Console.ReadKey();
                 }
             } while (seleccion != 0);
         }

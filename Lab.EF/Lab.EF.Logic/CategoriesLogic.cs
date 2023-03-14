@@ -11,40 +11,39 @@ namespace Lab.EF.Logic
     {
         public IEnumerable<Category> GetAll()
         {
-            return _northWindContext.Categories.ToList();
+            List<Category> list = _northWindContext.Categories.ToList();
+            if (list.Count == 0)
+                throw new Exception("No hay categorias en la base de datos");
+            return list;
         }
         public void Add(Category item)
         {
+            if (_northWindContext.Categories
+                .FirstOrDefault(c => c.CategoryName == item.CategoryName) != null)
+                throw new Exception("Categoria ya registrada");
+
             _northWindContext.Categories.Add(item);
             _northWindContext.SaveChangesAsync();
         }
-        public void Remove(int id)
+        public Category Remove(int id)
         {
             Category c = Find(id);
             _northWindContext.Categories.Remove(c);
             _northWindContext.SaveChangesAsync();
+            return c;
         }
         public Category Find(int id)
         {
-            return _northWindContext.Categories.FirstOrDefault(c => c.CategoryID == id);
+            var category = _northWindContext.Categories.FirstOrDefault(c => c.CategoryID == id);
+            if (category == null)
+                throw new ArgumentException($"Categoria con el id {id} no encontrada");
+            return category;
         }
         public void Update(Category item)
         {
-            var itemToUpdate = _northWindContext.Categories.FirstOrDefault(p => p.CategoryID == item.CategoryID);
+            var itemToUpdate = Find(item.CategoryID);
             itemToUpdate.CategoryName = item.CategoryName;
             _northWindContext.SaveChanges();
-        }
-        public int GenerateId() 
-        {
-            int id = 0;
-
-            foreach (var s in GetAll())
-            {
-                if (s.CategoryID >= id)
-                    id = s.CategoryID + 1;
-            }
-
-            return id;
         }
     }
 }

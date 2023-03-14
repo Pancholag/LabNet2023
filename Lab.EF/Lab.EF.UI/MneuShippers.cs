@@ -11,46 +11,65 @@ namespace Lab.EF.UI
 
     public class MenuShippers : MenuEntidadBase
     {
-        private ShippersLogic _shippersLogic = new ShippersLogic();
+        private IABMLogic<Shipper,int> _shippersLogic = new ShippersLogic();
 
         public override void VerTodos()
         {
+            Console.WriteLine("** Mostrando Transportistas **");
             foreach (var s in _shippersLogic.GetAll())
             {
                 Console.WriteLine($"Nombre de compania: {s.CompanyName} ID: {s.ShipperID}");
             }
+            Console.ReadKey();
         }
         public override void Agregar()
         {
             Shipper shipper = new Shipper();
 
-            Console.WriteLine("Agregando un cliente" +
-                "\n Ingrese el nombre de la compania:");
+            Console.WriteLine("Agregando un Transportista" +
+                "\n Ingrese el nombre de la compania de transporte:");
             shipper.CompanyName = Utilities.LeerTexto();
 
             _shippersLogic.Add(shipper);
-            Console.WriteLine($"Guardando compania {shipper.CompanyName}");
+            Console.WriteLine($"Transportista {shipper.CompanyName} agregado con exito");
+            Console.ReadKey();
         }
         public override void Remover()
         {
-            Console.WriteLine("Ingrese el ID del cliente a Remover");
-            _shippersLogic.Remove(Utilities.LeerNumero(int.MaxValue));
+            Console.WriteLine("Ingrese el ID del transportista a Remover");
+            var c = _shippersLogic.Remove(Utilities.LeerNumero());
+            Console.WriteLine($"Transportista {c.CompanyName} ha sido removido con exito");
+            Console.ReadKey();
         }
         public override void Modificar()
         {
-            Console.WriteLine("Ingrese el ID del cliente a Modificar");
-            var customer = _shippersLogic.Find(Utilities.LeerNumero(int.MaxValue));
-
-            Console.WriteLine(customer);
+            Console.WriteLine("Ingrese el ID del transportista a Modificar");
+            var shipper = Buscar();
+            Console.WriteLine("Transportista a modificar:\n" + shipper);
+            Console.WriteLine("Ingrese nuevo nombre de transportista o ingrese 0 para salir:");
+            string str = Utilities.LeerTexto();
+            if (str != "0")
+            {
+                shipper.CompanyName = str;
+                _shippersLogic.Update(shipper);
+                Console.WriteLine($"Transportista {str} modificado con exito");
+                Console.ReadKey();
+            }
         }
         public override void VerDetalle()
         {
             Console.WriteLine("Ingrese el ID del transportista a consultar:");
-            var id = Utilities.LeerNumero(int.MaxValue);
-            var aux = _shippersLogic.Find(id);
-            if (aux == null)
+            var shipper = Buscar();
+            Console.WriteLine(shipper);
+            Console.ReadKey();
+        }
+        private Shipper Buscar()
+        {
+            var id = Utilities.LeerNumero();
+            var shipper = _shippersLogic.Find(id);
+            if (shipper == null)
                 throw new ArgumentException($"Transportista con el id {id} no encontrado");
-            Console.WriteLine(aux);
+            return shipper;
         }
     }
 }

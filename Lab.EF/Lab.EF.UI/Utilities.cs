@@ -8,6 +8,10 @@ namespace Lab.EF.UI
 {
     public class Utilities
     {
+        public static int LeerNumero()
+        {
+            return LeerNumero(int.MaxValue);
+        }
         public static int LeerNumero(int max)
         {
             int aux;

@@ -11,45 +11,43 @@ namespace Lab.EF.Logic
     {
         public IEnumerable<Shipper> GetAll()
         {
-            return _northWindContext.Shippers.ToList();
+            List<Shipper> list = _northWindContext.Shippers.ToList();
+            if (list.Count == 0)
+                throw new Exception("No hay tranportistas en la base de datos");
+            return list;
         }
 
         public void Add(Shipper item) 
         {
+            if (_northWindContext.Shippers.
+                FirstOrDefault(s => s.CompanyName == item.CompanyName) != null)
+                throw new Exception("Transportista ya registrado");
+
             _northWindContext.Shippers.Add(item);
             _northWindContext.SaveChangesAsync();
         }
 
-        public void Remove(int id)
+        public Shipper Remove(int id)
         {
             Shipper c = Find(id);
             _northWindContext.Shippers.Remove(c);
             _northWindContext.SaveChangesAsync();
+            return c;
         }
 
         public Shipper Find(int id)
         {
-            return _northWindContext.Shippers.FirstOrDefault(s => s.ShipperID == id);
+            var shipper = _northWindContext.Shippers.FirstOrDefault(s => s.ShipperID == id);
+            if (shipper == null)
+                throw new Exception($"Transportista con el id {id} no encontrado");
+            return shipper;
         }
 
         public void Update(Shipper item)
         {
-            var shipperToUpdate = _northWindContext.Shippers.FirstOrDefault(s => s.ShipperID == item.ShipperID);
+            var shipperToUpdate = Find(item.ShipperID);
             shipperToUpdate.CompanyName = item.CompanyName;
             _northWindContext.SaveChanges();
-        }
-
-        public int GenerateId()
-        {
-            int id = 0;
-
-            foreach (var s in GetAll())
-            {
-                if (s.ShipperID >= id)
-                    id = s.ShipperID + 1;
-            }
-
-            return id;
         }
     }
 }
