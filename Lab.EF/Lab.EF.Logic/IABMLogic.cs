@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Lab.EF.Logic
 {
-    public interface IABMLogic<T, Tid>
+    public interface IAbmLogic<T, Tid>
     {
         /// <summary>
         /// Devuelve una coleccion con los registros de la base de datos

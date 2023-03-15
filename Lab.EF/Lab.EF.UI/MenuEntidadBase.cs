@@ -8,7 +8,7 @@ namespace Lab.EF.UI
 {
     public abstract class MenuEntidadBase
     {
-        public static int cantMetodos = 5;
+        private static int _cantMetodos = 5;
         public abstract void VerTodos();
         public abstract void VerDetalle();
         public abstract void Agregar();
@@ -28,7 +28,7 @@ namespace Lab.EF.UI
                     "\n4- Remover un registro" +
                     "\n5- Modificar un registro" +
                     "\n0- Volver al menu principal");
-                seleccion = Utilities.LeerNumero(MenuEntidadBase.cantMetodos);
+                seleccion = Utilities.LeerNumero(MenuEntidadBase._cantMetodos);
 
                 try
                 {

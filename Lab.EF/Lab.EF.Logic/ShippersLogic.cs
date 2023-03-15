@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Lab.EF.Logic
 {
-    public class ShippersLogic : BaseLogic , IABMLogic<Shipper, int>
+    public class ShippersLogic : BaseLogic , IAbmLogic<Shipper, int>
     {
         public ShippersLogic() {}
         public ShippersLogic(NorthwindContext context)
@@ -19,7 +19,7 @@ namespace Lab.EF.Logic
         {
             List<Shipper> list = _northWindContext.Shippers.ToList();
             if (list.Count == 0)
-                throw new Exception("No hay tranportistas en la base de datos");
+                throw new ArgumentException("No hay tranportistas en la base de datos");
             return list;
         }
 

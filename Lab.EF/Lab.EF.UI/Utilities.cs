@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab.EF.UI
 {
-    public class Utilities
+    public static class Utilities
     {
         public static int LeerNumero()
         {

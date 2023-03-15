@@ -11,7 +11,7 @@ namespace Lab.EF.UI
 
     public class MenuShippers : MenuEntidadBase
     {
-        private IABMLogic<Shipper,int> _shippersLogic = new ShippersLogic();
+        private IAbmLogic<Shipper,int> _shippersLogic = new ShippersLogic();
 
         public override void VerTodos()
         {

@@ -10,7 +10,7 @@ namespace Lab.EF.UI
 {
     internal class MenuCategories : MenuEntidadBase
     {
-        private IABMLogic<Category,int> _categoriesLogic = new CategoriesLogic();
+        private IAbmLogic<Category,int> _categoriesLogic = new CategoriesLogic();
 
         public override void VerTodos()
         {

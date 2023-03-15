@@ -70,7 +70,7 @@ namespace Lab.EF.Logic.Tests
         }
 
         [TestMethod()]
-        [ExpectedException(typeof(Exception))]
+        [ExpectedException(typeof(ArgumentException))]
         public void ShipperGetAllTest()
         {
             var data = new List<Shipper>
@@ -147,7 +147,7 @@ namespace Lab.EF.Logic.Tests
         }
 
         [TestMethod()]
-        [ExpectedException(typeof(Exception))]
+        [ExpectedException(typeof(ArgumentException))]
         public void CategoryGetAllTest()
         {
             var data = new List<Category>

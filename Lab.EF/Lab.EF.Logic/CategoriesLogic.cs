@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Lab.EF.Logic
 {
-    public class CategoriesLogic : BaseLogic , IABMLogic<Category, int>
+    public class CategoriesLogic : BaseLogic , IAbmLogic<Category, int>
     {
         public CategoriesLogic() { }
         public CategoriesLogic(NorthwindContext context)
@@ -20,7 +20,7 @@ namespace Lab.EF.Logic
         {
             List<Category> list = _northWindContext.Categories.ToList();
             if (list.Count == 0)
-                throw new Exception("No hay categorias en la base de datos");
+                throw new ArgumentException("No hay categorias en la base de datos");
             return list;
         }
 

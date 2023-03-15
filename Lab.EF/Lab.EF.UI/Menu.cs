@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Lab.EF.UI
 {
-    public class Menu
+    public static class Menu
     {
         private static readonly int _cantEntidades = 2;
         public static void MenuPrincipal()
