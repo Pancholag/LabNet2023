@@ -1,4 +1,5 @@
-﻿using Lab.EF.Entities;
+﻿using Lab.EF.Data;
+using Lab.EF.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,11 @@ namespace Lab.EF.Logic
 {
     public class ShippersLogic : BaseLogic , IABMLogic<Shipper, int>
     {
+        public ShippersLogic() {}
+        public ShippersLogic(NorthwindContext context)
+        {
+            _northWindContext = context;
+        }
         public IEnumerable<Shipper> GetAll()
         {
             List<Shipper> list = _northWindContext.Shippers.ToList();
@@ -21,10 +27,10 @@ namespace Lab.EF.Logic
         {
             if (_northWindContext.Shippers.
                 FirstOrDefault(s => s.CompanyName == item.CompanyName) != null)
-                throw new Exception("Transportista ya registrado");
+                throw new ArgumentException("Transportista ya registrado");
 
             _northWindContext.Shippers.Add(item);
-            _northWindContext.SaveChangesAsync();
+            _northWindContext.SaveChanges();
         }
 
         public Shipper Remove(int id)
@@ -39,7 +45,7 @@ namespace Lab.EF.Logic
         {
             var shipper = _northWindContext.Shippers.FirstOrDefault(s => s.ShipperID == id);
             if (shipper == null)
-                throw new Exception($"Transportista con el id {id} no encontrado");
+                throw new ArgumentException($"Transportista con el id {id} no encontrado");
             return shipper;
         }
 

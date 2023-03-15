@@ -10,6 +10,10 @@ namespace Lab.EF.Logic
 {
     public interface IABMLogic<T, Tid>
     {
+        /// <summary>
+        /// Devuelve una coleccion con los registros de la base de datos
+        /// </summary>
+        /// <returns>IEnumerable<T></returns>
         IEnumerable<T> GetAll();
         void Add(T item);
         T Remove(Tid id);

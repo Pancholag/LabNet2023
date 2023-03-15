@@ -24,9 +24,7 @@ namespace Lab.EF.UI
         public override void Agregar()
         {
             Category category = new Category();
-
             Console.WriteLine("Agregar una categoria");
-            /*category.CategoryID = _categoriesLogic.GenerateId();*/
             category.CategoryName = Utilities.LeerTexto();
             _categoriesLogic.Add(category);
             Console.WriteLine($"Categoria {category.CategoryName} agregada con exito");
