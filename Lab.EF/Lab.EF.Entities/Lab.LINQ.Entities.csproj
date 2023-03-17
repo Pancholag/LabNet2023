@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FB71B2A1-ED6A-45C9-BF88-B9468A3AC718}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Lab.EF.UI</RootNamespace>
-    <AssemblyName>Lab.EF.UI</AssemblyName>
+    <ProjectGuid>{8AFD790E-2731-454B-AFAD-DC0A4CBBB7F8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Lab.EF.Entities</RootNamespace>
+    <AssemblyName>Lab.EF.Entities</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -50,27 +48,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Menu.cs" />
-    <Compile Include="MenuCategories.cs" />
-    <Compile Include="MenuEntidadBase.cs" />
-    <Compile Include="MneuShippers.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Category.cs" />
+    <Compile Include="CustomerDemographic.cs" />
+    <Compile Include="Customer.cs" />
+    <Compile Include="CustomerDTO.cs" />
+    <Compile Include="Employee.cs" />
+    <Compile Include="Order.cs" />
+    <Compile Include="Order_Details.cs" />
+    <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utilities.cs" />
+    <Compile Include="Region.cs" />
+    <Compile Include="CustomerOrderDTO.cs" />
+    <Compile Include="Shipper.cs" />
+    <Compile Include="Supplier.cs" />
+    <Compile Include="Territory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Lab.EF.Entities\Lab.EF.Entities.csproj">
-      <Project>{8afd790e-2731-454b-afad-dc0a4cbbb7f8}</Project>
-      <Name>Lab.EF.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Lab.EF.Logic\Lab.EF.Logic.csproj">
-      <Project>{2be49c7e-8075-420c-8342-8c7ceb9b7ae2}</Project>
-      <Name>Lab.EF.Logic</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

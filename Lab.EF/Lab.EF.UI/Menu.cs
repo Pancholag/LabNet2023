@@ -1,11 +1,11 @@
-﻿using Lab.EF.Entities;
+﻿using Lab.LINQ.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lab.EF.UI
+namespace Lab.LINQ.UI
 {
     public static class Menu
     {

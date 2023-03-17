@@ -1,4 +1,4 @@
-namespace Lab.EF.Entities
+namespace Lab.LINQ.Entities
 {
     using System;
     using System.Collections.Generic;

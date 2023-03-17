@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4F64D3A1-6FD1-41BC-B2F8-DB3964310B60}</ProjectGuid>
+    <ProjectGuid>{FB71B2A1-ED6A-45C9-BF88-B9468A3AC718}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>PracticaLinq</RootNamespace>
-    <AssemblyName>PracticaLinq</AssemblyName>
+    <RootNamespace>Lab.EF.UI</RootNamespace>
+    <AssemblyName>Lab.EF.UI</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -50,25 +50,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseQuery.cs" />
-    <Compile Include="MethodSyntax.cs" />
+    <Compile Include="Menu.cs" />
+    <Compile Include="MenuCategories.cs" />
+    <Compile Include="MenuEntidadBase.cs" />
+    <Compile Include="MneuShippers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="IQuerys.cs" />
-    <Compile Include="QuerySyntax.cs" />
+    <Compile Include="Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Lab.EF.Data\Lab.EF.Data.csproj">
-      <Project>{FA7317B1-BA9A-4DD0-81F7-644201D3A7B8}</Project>
-      <Name>Lab.EF.Data</Name>
+    <ProjectReference Include="..\Lab.EF.Entities\Lab.LINQ.Entities.csproj">
+      <Project>{8afd790e-2731-454b-afad-dc0a4cbbb7f8}</Project>
+      <Name>Lab.LINQ.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Lab.EF.Entities\Lab.EF.Entities.csproj">
-      <Project>{8AFD790E-2731-454B-AFAD-DC0A4CBBB7F8}</Project>
-      <Name>Lab.EF.Entities</Name>
+    <ProjectReference Include="..\Lab.EF.Logic\Lab.LINQ.Logic.csproj">
+      <Project>{2be49c7e-8075-420c-8342-8c7ceb9b7ae2}</Project>
+      <Name>Lab.LINQ.Logic</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

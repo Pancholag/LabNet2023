@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2BE49C7E-8075-420C-8342-8C7CEB9B7AE2}</ProjectGuid>
+    <ProjectGuid>{FA7317B1-BA9A-4DD0-81F7-644201D3A7B8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Lab.EF.Logic</RootNamespace>
-    <AssemblyName>Lab.EF.Logic</AssemblyName>
+    <RootNamespace>Lab.EF.Data</RootNamespace>
+    <AssemblyName>Lab.EF.Data</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -40,6 +40,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,10 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseLogic.cs" />
-    <Compile Include="CategoriesLogic.cs" />
-    <Compile Include="ShippersLogic.cs" />
-    <Compile Include="IABMLogic.cs" />
+    <Compile Include="NorthwindContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -59,13 +58,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Lab.EF.Data\Lab.EF.Data.csproj">
-      <Project>{FA7317B1-BA9A-4DD0-81F7-644201D3A7B8}</Project>
-      <Name>Lab.EF.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Lab.EF.Entities\Lab.EF.Entities.csproj">
+    <ProjectReference Include="..\Lab.EF.Entities\Lab.LINQ.Entities.csproj">
       <Project>{8AFD790E-2731-454B-AFAD-DC0A4CBBB7F8}</Project>
-      <Name>Lab.EF.Entities</Name>
+      <Name>Lab.LINQ.Entities</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

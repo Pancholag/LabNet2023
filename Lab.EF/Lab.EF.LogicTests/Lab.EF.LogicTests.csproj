@@ -83,13 +83,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Lab.EF.Data\Lab.EF.Data.csproj">
+    <ProjectReference Include="..\Lab.EF.Data\Lab.LINQ.Data.csproj">
       <Project>{FA7317B1-BA9A-4DD0-81F7-644201D3A7B8}</Project>
-      <Name>Lab.EF.Data</Name>
+      <Name>Lab.LINQ.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Lab.EF.Entities\Lab.EF.Entities.csproj">
+    <ProjectReference Include="..\Lab.EF.Entities\Lab.LINQ.Entities.csproj">
       <Project>{8afd790e-2731-454b-afad-dc0a4cbbb7f8}</Project>
-      <Name>Lab.EF.Entities</Name>
+      <Name>Lab.LINQ.Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\Lab.EF.Logic\Lab.EF.Logic.csproj">
       <Project>{2BE49C7E-8075-420C-8342-8C7CEB9B7AE2}</Project>
