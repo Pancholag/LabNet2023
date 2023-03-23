@@ -11,7 +11,7 @@ namespace Lab.EF.Logic
     {
         protected NorthwindContext _northWindContext;
 
-        public BaseLogic()
+        protected BaseLogic()
         {
             _northWindContext = new NorthwindContext();
         }

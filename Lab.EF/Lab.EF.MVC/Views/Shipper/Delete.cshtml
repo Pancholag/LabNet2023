@@ -1,0 +1,11 @@
+﻿@model Lab.EF.MVC.Models.ShipperViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Estas seguro que quieres eliminar el transportista</h2>
+
+@Model.CompanyName
+
+@Html.ActionLink("Borrar","DeleteConfirmed", new { id = Model.ShipperId }, new { @class="btn btn-danger" })

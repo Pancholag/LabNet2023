@@ -1,0 +1,33 @@
+﻿@model List<Lab.EF.MVC.Models.ShipperViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index de los transportistas</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>ID transportista</td>
+            <td>Nombre transportista</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var i in Model) 
+        {
+            <tr>
+                <td>@i.ShipperId</td>
+                <td>@i.CompanyName</td>
+                <td>@Html.ActionLink("Borrar","Delete",new { id = i.ShipperId })</td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+<div>
+    @Html.ActionLink("Insertar nuevo Transportista","Insert")
+</div>
+
