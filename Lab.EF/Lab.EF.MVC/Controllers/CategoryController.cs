@@ -9,45 +9,46 @@ using System.Web.Mvc;
 
 namespace Lab.EF.MVC.Controllers
 {
-    public class ShipperController : Controller
+    public class CategoryController : Controller
     {
-        readonly ShippersLogic shippersLogic = new ShippersLogic();
+        readonly CategoriesLogic categoriesLogic = new CategoriesLogic();
         [HttpGet]
         public ActionResult Index()
         {
             try
             {
-                List<ShipperViewModel> ret = shippersLogic.GetAll().Select(p => new ShipperViewModel
+                List<CategoriesViewModel> ret = categoriesLogic.GetAll().Select(p => new CategoriesViewModel
                 {
-                    ShipperId = p.ShipperID,
-                    CompanyName = p.CompanyName
+                    CategoryID = p.CategoryID,
+                    CategoryName = p.CategoryName
                 }).ToList();
 
                 return View(ret);
             }
-            catch (Exception e) 
+            catch (Exception e)
             {
-                return RedirectToAction("Index", "Error", new { e.Message });
+                return RedirectToAction("Index","Error",new { e.Message });
             }
         }
 
         [HttpGet]
-        public ActionResult Insert() 
+        public ActionResult Insert()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Insert(ShipperViewModel shipperViewModel) 
+        public ActionResult Insert(CategoriesViewModel categoriesViewModel)
         {
             try
             {
-                Shipper shipper = new Shipper { CompanyName = shipperViewModel.CompanyName };
+                Category category = new Category { CategoryName = categoriesViewModel.CategoryName };
 
-                shippersLogic.Add(shipper);
+                categoriesLogic.Add(category);
 
                 return RedirectToAction("Index");
-            } catch (Exception e)
+            }
+            catch (Exception e)
             {
                 return RedirectToAction("Index", "Error", new { e.Message });
             }
@@ -58,12 +59,12 @@ namespace Lab.EF.MVC.Controllers
         {
             try
             {
-                Shipper s = shippersLogic.Find(id);
+                Category c = categoriesLogic.Find(id);
 
-                ShipperViewModel ret = new ShipperViewModel
+                CategoriesViewModel ret = new CategoriesViewModel
                 {
-                    ShipperId = s.ShipperID,
-                    CompanyName = s.CompanyName
+                    CategoryID = c.CategoryID,
+                    CategoryName = c.CategoryName
                 };
 
                 return View(ret);
@@ -78,7 +79,7 @@ namespace Lab.EF.MVC.Controllers
         {
             try
             {
-                shippersLogic.Remove(id);
+                categoriesLogic.Remove(id);
 
                 return RedirectToAction("Index");
             }
@@ -93,35 +94,34 @@ namespace Lab.EF.MVC.Controllers
         {
             try
             {
-                Shipper s = shippersLogic.Find(id);
+                Category c = categoriesLogic.Find(id);
 
-                ShipperViewModel ret = new ShipperViewModel
+                CategoriesViewModel ret = new CategoriesViewModel
                 {
-                    ShipperId = s.ShipperID,
-                    CompanyName = s.CompanyName
+                    CategoryID = c.CategoryID,
+                    CategoryName = c.CategoryName
                 };
 
                 return View(ret);
             }
             catch (Exception e)
             {
-                ViewBag.ErrorMessage = e.Message;
-                return RedirectToAction("Error");
+                return RedirectToAction("Index", "Error", new { e.Message });
             }
         }
 
         [HttpPost]
-        public ActionResult Update(ShipperViewModel shipperViewModel)
+        public ActionResult Update(CategoriesViewModel categoriesViewModel)
         {
             try
             {
-                Shipper shipper = new Shipper
+                Category category = new Category
                 {
-                    CompanyName = shipperViewModel.CompanyName,
-                    ShipperID = shipperViewModel.ShipperId
+                    CategoryName = categoriesViewModel.CategoryName,
+                    CategoryID = categoriesViewModel.CategoryID
                 };
 
-                shippersLogic.Update(shipper);
+                categoriesLogic.Update(category);
 
                 return RedirectToAction("Index");
             }
@@ -136,12 +136,12 @@ namespace Lab.EF.MVC.Controllers
         {
             try
             {
-                Shipper s = shippersLogic.Find(id);
+                Category c = categoriesLogic.Find(id);
 
-                ShipperViewModel ret = new ShipperViewModel
+                CategoriesViewModel ret = new CategoriesViewModel
                 {
-                    ShipperId = s.ShipperID,
-                    CompanyName = s.CompanyName
+                    CategoryID = c.CategoryID,
+                    CategoryName = c.CategoryName
                 };
 
                 return View(ret);
@@ -151,6 +151,5 @@ namespace Lab.EF.MVC.Controllers
                 return RedirectToAction("Index", "Error", new { e.Message });
             }
         }
-
     }
 }

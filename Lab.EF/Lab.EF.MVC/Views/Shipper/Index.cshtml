@@ -1,16 +1,17 @@
 ﻿@model List<Lab.EF.MVC.Models.ShipperViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Transportistas";
 }
 
-<h2>Index de los transportistas</h2>
+<h2>Transportistas</h2>
 
 <table class="table">
     <thead>
         <tr>
             <td>ID transportista</td>
             <td>Nombre transportista</td>
+            <td></td>
             <td></td>
         </tr>
     </thead>
@@ -20,8 +21,9 @@
         {
             <tr>
                 <td>@i.ShipperId</td>
-                <td>@i.CompanyName</td>
-                <td>@Html.ActionLink("Borrar","Delete",new { id = i.ShipperId })</td>
+                <td>@Html.ActionLink(@i.CompanyName.ToString(), "Details", new { id = i.ShipperId })</td>
+                <td>@Html.ActionLink("Modificar", "Update", new { id = i.ShipperId })</td>
+                <td>@Html.ActionLink("Borrar", "Delete", new { id = i.ShipperId })</td>
             </tr>
         }
 

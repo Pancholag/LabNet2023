@@ -1,12 +1,17 @@
 ﻿@model Lab.EF.MVC.Models.ShipperViewModel
 
 @{
-    ViewBag.Title = "Insert";
- }
+    ViewBag.Title = "Agregar";
+}
 Vista para insertar
 
 @using (Html.BeginForm("Insert", "Shipper", FormMethod.Post))
 {
-    <label>Nombre de la compañia</label> @Html.TextBoxFor(P => P.CompanyName)
-    <input type="submit" value="Agregar">
+    <label>Nombre de la compañia</label> 
+    @Html.TextBoxFor(P => P.CompanyName, new { @class = "form-control", @style="margin-bottom: 10px" })
+    <input type="submit" value="Agregar" class="btn btn-primary">
+    <label style="font-size: 16px"> | @Html.ActionLink("volver", "Index")</label>
 }
+
+
+

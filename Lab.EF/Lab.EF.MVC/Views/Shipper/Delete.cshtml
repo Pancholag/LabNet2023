@@ -1,11 +1,17 @@
 ﻿@model Lab.EF.MVC.Models.ShipperViewModel
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Borrar";
 }
 
-<h2>Estas seguro que quieres eliminar el transportista</h2>
+<h2>Estas seguro que quieres eliminar el transportista con ID : @Model.ShipperId</h2>
 
-@Model.CompanyName
+<div>
+    <label style="font-weight: 400" class="h4" ">Nombre de la categoria: @Model.CompanyName</label>
+</div>
 
-@Html.ActionLink("Borrar","DeleteConfirmed", new { id = Model.ShipperId }, new { @class="btn btn-danger" })
+@using (Html.BeginForm("DeleteConfirmed", "Category", new { id = Model.ShipperId }, FormMethod.Post, new { @class = "form-class" }))
+{
+    <input type="submit" value="Borrar" class="btn btn-danger">
+    <label style="font-size: 16px"> | @Html.ActionLink("volver", "Index")</label>
+}

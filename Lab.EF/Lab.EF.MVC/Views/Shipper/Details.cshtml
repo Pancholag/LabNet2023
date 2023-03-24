@@ -1,0 +1,13 @@
+﻿@model Lab.EF.MVC.Models.ShipperViewModel
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Transportista con ID @Html.DisplayFor(t => t.ShipperId)</h2>
+<div class="form-group">
+    
+    <p class="form-control-static" style="font-size: 18px">Nombre de la categoria: <label style="font-weight: 600">@Html.DisplayFor(p => p.CompanyName)</label></p>
+
+</div>
+<label style="font-size: 16px">@Html.ActionLink("volver", "Index")</label>

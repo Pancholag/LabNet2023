@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Error";
+}
+
+<h2>Ha ocurrido un error</h2>
+
+<p style="font-size: 16px; margin-top: 20px">Descripcion del error: <b>@ViewBag.Message</b></p>
+
+@if (ViewBag.Message == "No hay tranportistas en la base de datos")
+{
+    @Html.ActionLink("Insertar nuevo Transportista", "Insert", "Shipper")
+}
+else if (ViewBag.Message == "No hay categorias en la base de datos")
+{
+    @Html.ActionLink("Insertar nuevo Transportista", "Insert", "Category")
+}
+
+@Html.ActionLink("Volver", "Index", "Home")

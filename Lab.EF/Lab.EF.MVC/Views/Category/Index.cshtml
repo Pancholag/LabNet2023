@@ -1,0 +1,35 @@
+﻿@model List<Lab.EF.MVC.Models.CategoriesViewModel>
+
+@{
+    ViewBag.Title = "Categorias";
+}
+
+<h2>Categorias</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>ID Categoria</td>
+            <td>Nombre Categoria</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var i in Model) 
+        {
+            <tr>
+                <td>@i.CategoryID</td>
+                <td>@Html.ActionLink(@i.CategoryName.ToString(), "Details", new { id = i.CategoryID })</td>
+                <td>@Html.ActionLink("Modificar", "Update", new { id = i.CategoryID })</td>
+                <td>@Html.ActionLink("Borrar", "Delete", new { id = i.CategoryID })</td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+<div>
+    @Html.ActionLink("Insertar nueva categoria","Insert")
+</div>
+

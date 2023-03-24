@@ -1,0 +1,17 @@
+﻿@model Lab.EF.MVC.Models.ShipperViewModel
+
+@{
+    ViewBag.Title = "Modificar";
+}
+
+<h2>Modificar Transportista con ID: @Html.DisplayFor(p => p.ShipperId)</h2>
+<div>
+    @using (Html.BeginForm("Update", "Shipper", FormMethod.Post))
+    {
+        <label>Nombre de la compañia</label> 
+        @Html.TextBoxFor(P => P.CompanyName, new { @class = "form-control", @style = "margin-bottom: 20px" })
+        <div hidden>@Html.TextBoxFor(P => P.ShipperId)</div>
+        <input type="submit" value="Guardar Cambios" class="btn btn-primary">
+        <label style="font-size: 16px"> | @Html.ActionLink("volver", "Index")</label>
+    }
+</div>

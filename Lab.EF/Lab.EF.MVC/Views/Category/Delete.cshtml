@@ -1,0 +1,17 @@
+﻿@model Lab.EF.MVC.Models.CategoriesViewModel
+
+@{
+    ViewBag.Title = "Borrar";
+}
+
+<h2>Estas seguro que quieres eliminar la categoria con ID: @Model.CategoryID</h2>
+
+<div>
+    <label style="font-weight: 400" class="h4" ">Nombre de la categoria: @Model.CategoryName</label>
+</div>
+
+@using (Html.BeginForm("DeleteConfirmed", "Category", new { id = Model.CategoryID }, FormMethod.Post, new { @class = "form-class" }))
+{
+    <input type="submit" value="Borrar" class="btn btn-danger">
+    <label style="font-size: 16px"> | @Html.ActionLink("volver", "Index")</label>
+}
