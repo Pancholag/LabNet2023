@@ -20,7 +20,8 @@ namespace Lab.EF.MVC.Controllers
                 List<CategoriesViewModel> ret = categoriesLogic.GetAll().Select(p => new CategoriesViewModel
                 {
                     CategoryID = p.CategoryID,
-                    CategoryName = p.CategoryName
+                    CategoryName = p.CategoryName,
+                    Description = p.Description
                 }).ToList();
 
                 return View(ret);
@@ -42,7 +43,11 @@ namespace Lab.EF.MVC.Controllers
         {
             try
             {
-                Category category = new Category { CategoryName = categoriesViewModel.CategoryName };
+                Category category = new Category
+                { 
+                    CategoryName = categoriesViewModel.CategoryName,
+                    Description= categoriesViewModel.Description
+                };
 
                 categoriesLogic.Add(category);
 
@@ -64,7 +69,8 @@ namespace Lab.EF.MVC.Controllers
                 CategoriesViewModel ret = new CategoriesViewModel
                 {
                     CategoryID = c.CategoryID,
-                    CategoryName = c.CategoryName
+                    CategoryName = c.CategoryName,
+                    Description = c.Description
                 };
 
                 return View(ret);
@@ -99,7 +105,8 @@ namespace Lab.EF.MVC.Controllers
                 CategoriesViewModel ret = new CategoriesViewModel
                 {
                     CategoryID = c.CategoryID,
-                    CategoryName = c.CategoryName
+                    CategoryName = c.CategoryName,
+                    Description = c.Description
                 };
 
                 return View(ret);
@@ -118,7 +125,8 @@ namespace Lab.EF.MVC.Controllers
                 Category category = new Category
                 {
                     CategoryName = categoriesViewModel.CategoryName,
-                    CategoryID = categoriesViewModel.CategoryID
+                    CategoryID = categoriesViewModel.CategoryID,
+                    Description = categoriesViewModel.Description
                 };
 
                 categoriesLogic.Update(category);
@@ -141,7 +149,8 @@ namespace Lab.EF.MVC.Controllers
                 CategoriesViewModel ret = new CategoriesViewModel
                 {
                     CategoryID = c.CategoryID,
-                    CategoryName = c.CategoryName
+                    CategoryName = c.CategoryName,
+                    Description = c.Description
                 };
 
                 return View(ret);

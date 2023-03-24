@@ -8,6 +8,7 @@
 
 <div>
     <label style="font-weight: 400" class="h4" ">Nombre de la categoria: @Model.CategoryName</label>
+    <label style="font-weight: 400" class="h4" ">Descripcion de la categoria: @Model.Description</label>
 </div>
 
 @using (Html.BeginForm("DeleteConfirmed", "Category", new { id = Model.CategoryID }, FormMethod.Post, new { @class = "form-class" }))

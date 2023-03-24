@@ -6,6 +6,7 @@
 
 <h2>Categoria con ID @Html.DisplayFor(c => c.CategoryID)</h2>
 <div class="form-group">
-    <p class="form-control-static" style="font-size: 18px">Nombre de la categoria: <label style="font-weight: 600">@Html.DisplayFor(p => p.CategoryName, new { @class = "mt-5" })</label></p>
+    <p class="form-control-static" style="font-size: 18px">Nombre de la categoria: <label style="font-weight: 600">@Html.DisplayFor(p => p.CategoryName)</label></p>
+    <p class="form-control-static" style="font-size: 18px">Descripcion de la categoria: <label style="font-weight: 600">@Html.DisplayFor(p => p.Description)</label></p>
 </div>
 <label style="font-size: 16px">@Html.ActionLink("volver", "Index")</label>

@@ -9,8 +9,10 @@
 <div class="form-group">
     @using (Html.BeginForm("Update", "Category", FormMethod.Post))
     {
-        <label>Nombre de la compañia</label>
-        @Html.TextBoxFor(p => p.CategoryName, new { @class = "form-control", @style="margin-bottom: 20px" })
+        <label>Nombre de la Categoria</label>
+        @Html.TextBoxFor(p => p.CategoryName, new { @class = "form-control", @style = "margin-bottom: 10px" })
+        <label>Descripcion de la Categoria</label>
+        @Html.TextBoxFor(p => p.Description, new { @class = "form-control", @style = "margin-bottom: 20px" })
         <div hidden>@Html.TextBoxFor(P => P.CategoryID)</div>
         <input type="submit" value="Guardar Cambios" class="btn btn-primary">
         <label style="font-size: 16px"> | @Html.ActionLink("volver", "Index")</label>

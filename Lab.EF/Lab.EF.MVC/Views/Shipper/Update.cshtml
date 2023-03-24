@@ -8,8 +8,10 @@
 <div>
     @using (Html.BeginForm("Update", "Shipper", FormMethod.Post))
     {
-        <label>Nombre de la compañia</label> 
-        @Html.TextBoxFor(P => P.CompanyName, new { @class = "form-control", @style = "margin-bottom: 20px" })
+        <label>Nombre de la compañia</label>
+        @Html.TextBoxFor(P => P.CompanyName, new { @class = "form-control", @style = "margin-bottom: 10px" })
+        <label>Telefono de la compañia</label>
+        @Html.TextBoxFor(P => P.Phone, new { @class = "form-control", @style = "margin-bottom: 20px" })
         <div hidden>@Html.TextBoxFor(P => P.ShipperId)</div>
         <input type="submit" value="Guardar Cambios" class="btn btn-primary">
         <label style="font-size: 16px"> | @Html.ActionLink("volver", "Index")</label>

@@ -5,9 +5,10 @@
 }
 
 <h2>Transportista con ID @Html.DisplayFor(t => t.ShipperId)</h2>
-<div class="form-group">
-    
-    <p class="form-control-static" style="font-size: 18px">Nombre de la categoria: <label style="font-weight: 600">@Html.DisplayFor(p => p.CompanyName)</label></p>
 
+<div class="form-group">
+    <p class="form-control-static" style="font-size: 18px">Nombre de la compañia: <label style="font-weight: 600">@Html.DisplayFor(p => p.CompanyName)</label></p>
+    <p class="form-control-static" style="font-size: 18px">Telefono de la compañia: <label style="font-weight: 600">@Html.DisplayFor(p => p.Phone)</label></p>
 </div>
+
 <label style="font-size: 16px">@Html.ActionLink("volver", "Index")</label>

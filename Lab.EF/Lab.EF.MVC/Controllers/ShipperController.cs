@@ -20,7 +20,8 @@ namespace Lab.EF.MVC.Controllers
                 List<ShipperViewModel> ret = shippersLogic.GetAll().Select(p => new ShipperViewModel
                 {
                     ShipperId = p.ShipperID,
-                    CompanyName = p.CompanyName
+                    CompanyName = p.CompanyName,
+                    Phone = p.Phone,
                 }).ToList();
 
                 return View(ret);
@@ -42,7 +43,11 @@ namespace Lab.EF.MVC.Controllers
         {
             try
             {
-                Shipper shipper = new Shipper { CompanyName = shipperViewModel.CompanyName };
+                Shipper shipper = new Shipper
+                { 
+                    CompanyName = shipperViewModel.CompanyName,
+                    Phone = shipperViewModel.Phone,
+                };
 
                 shippersLogic.Add(shipper);
 
@@ -63,7 +68,8 @@ namespace Lab.EF.MVC.Controllers
                 ShipperViewModel ret = new ShipperViewModel
                 {
                     ShipperId = s.ShipperID,
-                    CompanyName = s.CompanyName
+                    CompanyName = s.CompanyName,
+                    Phone = s.Phone
                 };
 
                 return View(ret);
@@ -98,7 +104,8 @@ namespace Lab.EF.MVC.Controllers
                 ShipperViewModel ret = new ShipperViewModel
                 {
                     ShipperId = s.ShipperID,
-                    CompanyName = s.CompanyName
+                    CompanyName = s.CompanyName,
+                    Phone = s.Phone
                 };
 
                 return View(ret);
@@ -118,7 +125,8 @@ namespace Lab.EF.MVC.Controllers
                 Shipper shipper = new Shipper
                 {
                     CompanyName = shipperViewModel.CompanyName,
-                    ShipperID = shipperViewModel.ShipperId
+                    ShipperID = shipperViewModel.ShipperId,
+                    Phone = shipperViewModel.Phone
                 };
 
                 shippersLogic.Update(shipper);
@@ -141,7 +149,8 @@ namespace Lab.EF.MVC.Controllers
                 ShipperViewModel ret = new ShipperViewModel
                 {
                     ShipperId = s.ShipperID,
-                    CompanyName = s.CompanyName
+                    CompanyName = s.CompanyName,
+                    Phone = s.Phone
                 };
 
                 return View(ret);

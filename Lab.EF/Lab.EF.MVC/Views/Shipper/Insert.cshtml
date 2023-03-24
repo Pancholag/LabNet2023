@@ -3,12 +3,14 @@
 @{
     ViewBag.Title = "Agregar";
 }
-Vista para insertar
+<h2>Agregar Transportista</h2>
 
 @using (Html.BeginForm("Insert", "Shipper", FormMethod.Post))
 {
-    <label>Nombre de la compañia</label> 
-    @Html.TextBoxFor(P => P.CompanyName, new { @class = "form-control", @style="margin-bottom: 10px" })
+    <label>Nombre de la compañia</label>
+    @Html.TextBoxFor(P => P.CompanyName, new { @class = "form-control", @style = "margin-bottom: 10px" })
+    <label>Telefono de la compañia</label>
+    @Html.TextBoxFor(P => P.Phone, new { @class = "form-control", @style = "margin-bottom: 20px" })
     <input type="submit" value="Agregar" class="btn btn-primary">
     <label style="font-size: 16px"> | @Html.ActionLink("volver", "Index")</label>
 }

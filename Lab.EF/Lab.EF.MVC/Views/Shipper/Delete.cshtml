@@ -6,8 +6,10 @@
 
 <h2>Estas seguro que quieres eliminar el transportista con ID : @Model.ShipperId</h2>
 
-<div>
-    <label style="font-weight: 400" class="h4" ">Nombre de la categoria: @Model.CompanyName</label>
+<div class="form-group">
+    <label style="font-weight: 400" class="h4">Nombre de la compañia: @Model.CompanyName</label>
+    <br/>
+    <label style="font-weight: 400" class="h4">Telefono de la compañia: @Model.Phone</label>
 </div>
 
 @using (Html.BeginForm("DeleteConfirmed", "Category", new { id = Model.ShipperId }, FormMethod.Post, new { @class = "form-class" }))
