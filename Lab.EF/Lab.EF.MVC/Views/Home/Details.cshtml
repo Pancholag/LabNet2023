@@ -1,0 +1,13 @@
+﻿@model Lab.EF.MVC.Models.DataModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Modelo con ID @Html.DisplayFor(c => c.Id)</h2>
+<div class="form-group">
+    <p class="form-control-static" style="font-size: 18px">Titulo del modelo: <label style="font-weight: 600">@Html.DisplayFor(p => p.Title)</label></p>
+    <p class="form-control-static" style="font-size: 18px">Descripcion del modelo: <label style="font-weight: 600">@Html.DisplayFor(p => p.Body)</label></p>
+    <p class="form-control-static" style="font-size: 18px">ID del usuario: <label style="font-weight: 600">@Html.DisplayFor(p => p.UserId)</label></p>
+</div>
+<label style="font-size: 16px">@Html.ActionLink("volver", "ApiTest")</label>

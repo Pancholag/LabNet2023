@@ -1,0 +1,44 @@
+﻿@model List<Lab.EF.MVC.Models.DataModel>
+
+@{
+    ViewBag.Title = "ApiTest";
+}
+
+@{
+    if (ViewBag.Message != null)
+    {
+        <div>
+            @ViewBag.Message
+        </div>
+    }
+}
+
+<h2>JsonPlaceholder lista</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>ID Modelo</td>
+            <td>Titulo Modelo</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td>@i.Id</td>
+                <td>@Html.ActionLink(@i.Title.ToString(), "Details", new { id = i.Id })</td>
+                <td>@Html.ActionLink("Modificar", "Update", new { id = i.Id })</td>
+                <td>@Html.ActionLink("Borrar", "Delete", new { id = i.Id })</td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+<div>
+    @Html.ActionLink("Insertar nuevo modelo", "Add")
+</div>
