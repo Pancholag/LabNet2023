@@ -26,6 +26,12 @@ namespace Lab.EF.MVC.Controllers
 
         public async Task<ActionResult> ApiTest()
         {
+            if (TempData.ContainsKey("Message"))
+            {
+                ViewBag.Message = TempData["Message"];
+                TempData["Message"] = ViewBag.Message;
+            }
+
             HttpClient client = new HttpClient();
             HttpResponseMessage response = await client.GetAsync("https://jsonplaceholder.typicode.com/posts/");
             string content = await response.Content.ReadAsStringAsync();
@@ -42,11 +48,13 @@ namespace Lab.EF.MVC.Controllers
             return View(data);
         }
 
+        [HttpGet]
         public ActionResult Add()
         {
             return View();
         }
 
+        [HttpPost]
         public async Task<ActionResult> Add(DataModel d)
         {
             string json =JsonConvert.SerializeObject(d);
@@ -54,10 +62,19 @@ namespace Lab.EF.MVC.Controllers
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             var response = await client.PostAsync("https://jsonplaceholder.typicode.com/posts",content);
 
-            
+            if (response.IsSuccessStatusCode)
+            {
+                TempData["Message"] = "La operacion fue realizada con exito, aunque el modelo no fue agregado";
+            }
+            else
+            {
+                TempData["Message"] = "La operacion intentada fracaso";
+            }
+
             return RedirectToAction("ApiTest");
         }
 
+        [HttpGet]
         public async Task<ActionResult> Update(int id)
         {
             HttpClient client = new HttpClient();
@@ -67,12 +84,22 @@ namespace Lab.EF.MVC.Controllers
             return View(data);
         }
 
+        [HttpPost]
         public async Task<ActionResult> Update(DataModel d)
         {
             string json = JsonConvert.SerializeObject(d);
             var client = new HttpClient();
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await client.PutAsync("https://jsonplaceholder.typicode.com/posts", content);
+            var response = await client.PutAsync("https://jsonplaceholder.typicode.com/posts/" + d.Id, content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                TempData["Message"] = "La operacion fue realizada con exito, aunque el modelo no fue modificado";
+            }
+            else
+            {
+                TempData["Message"] = "La operacion intentada fracaso";
+            }
 
             return RedirectToAction("ApiTest");
         }
@@ -91,8 +118,16 @@ namespace Lab.EF.MVC.Controllers
             var client = new HttpClient();
             var response = await client.DeleteAsync("https://jsonplaceholder.typicode.com/posts/" + id);
 
+            if (response.IsSuccessStatusCode)
+            {
+                TempData["Message"] = "La operacion fue realizada con exito, aunque el modelo no fue eliminado";
+            }
+            else
+            {
+                TempData["Message"] = "La operacion intentada fracaso";
+            }
+
             return RedirectToAction("ApiTest");
-            
         }
     }
 }
