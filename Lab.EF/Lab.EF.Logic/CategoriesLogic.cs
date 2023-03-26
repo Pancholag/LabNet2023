@@ -29,7 +29,10 @@ namespace Lab.EF.Logic
             if (_northWindContext.Categories
                 .FirstOrDefault(c => c.CategoryName == item.CategoryName) != null)
                 throw new ArgumentException("Categoria ya registrada");
-
+            if (item.CategoryName.Length > 15)
+            {
+                throw new ArgumentException("Nombre mayor a 15 caracteres");
+            }
             _northWindContext.Categories.Add(item);
             _northWindContext.SaveChangesAsync();
         }
@@ -53,7 +56,13 @@ namespace Lab.EF.Logic
         public void Update(Category item)
         {
             var itemToUpdate = Find(item.CategoryID);
+            if (item.CategoryName.Length > 15)
+            {
+                throw new ArgumentException("Nombre mayor a 15 caracteres");
+            }
+
             itemToUpdate.CategoryName = item.CategoryName;
+            itemToUpdate.Description = item.Description;
             _northWindContext.SaveChanges();
         }
     }
