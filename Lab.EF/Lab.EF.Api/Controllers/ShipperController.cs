@@ -7,11 +7,13 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Results;
 using System.Web.Mvc;
 
 namespace Lab.EF.Api.Controllers
 {
+    [EnableCors("*","*","*")]
     public class ShipperController : ApiController
     {
         readonly ShippersLogic _shippersLogic = new ShippersLogic();
