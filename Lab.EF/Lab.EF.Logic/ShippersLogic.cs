@@ -53,7 +53,9 @@ namespace Lab.EF.Logic
         {
             var shipperToUpdate = Find(item.ShipperID);
             shipperToUpdate.CompanyName = item.CompanyName;
+            if (item.Phone != "" && item.Phone != null) { 
             shipperToUpdate.Phone = item.Phone;
+            }
             _northWindContext.SaveChanges();
         }
     }
