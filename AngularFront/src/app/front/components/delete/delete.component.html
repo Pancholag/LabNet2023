@@ -1,0 +1,12 @@
+<div class="container body-content mt-5">
+    <p class="h3">¿Estas seguro que quiere eliminar el transportista con ID {{s.ShipperID}}?</p>
+
+    <div class="form-group">
+        <p class="form-control-static" style="font-size: 18px">Nombre de la compañia: {{s.CompanyName}}</p>
+        <p class="form-control-static" style="font-size: 18px">Telefono de la compañia: {{s.Phone}}</p>
+        <p class="form-control-static" style="font-size: 18px">Cantidad de ordenes: {{s.OrdersCount}}</p>
+    </div>
+    
+    <a class="btn btn-danger mx-4" (click)="borrarTransportista(str)">Borrar</a>
+    <a class="btn btn-primary mx-4" href="">Volver</a>
+</div>

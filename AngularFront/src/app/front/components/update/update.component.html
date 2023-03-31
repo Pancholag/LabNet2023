@@ -1,0 +1,18 @@
+<div class="container body-content mt-5">
+
+    <p class="h3 my-3">Modificar Transportista</p>
+
+    <form [formGroup]="formTransportista">
+        <div class="form-group my-2">
+            <label for="CompanyName">Nombre de la compañia</label>
+            <input type="email" class="form-control" id="CompanyName" formControlName="CompanyName" placeholder="Compañia" value="{{s.CompanyName}}">
+            <label *ngIf="CompanyName && CompanyName.invalid" class="text-danger ">Ingrese un nombre valido</label>
+        </div>
+        <div class="form-group my-2">
+            <label for="Phone">Telefono de la compañia:</label>
+            <input type="text" class="form-control" id="Phone" formControlName="Phone" placeholder="Telefono" value="{{s.Phone}}">
+        </div>
+        <button class="btn btn-primary my-2 mx-4" [disabled]="formTransportista.invalid" (click)="actualizarTransportista(str)">Guardar Cambios</button>
+        <a class="btn btn-secondary my-2 mx-4" href="">Volver</a>
+    </form>
+</div>

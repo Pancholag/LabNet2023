@@ -1,0 +1,24 @@
+<div class="container body-content mt-5">
+    <p class="h3 my-3">Transportistas</p>
+    <table class="table">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Nombre transportista</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of listaTransportista">
+                <td>{{i.ShipperID}}</td>
+                <td><a href="/get/{{i.ShipperID}}">{{i.CompanyName}}</a></td>
+                <td><a href="/delete/{{i.ShipperID}}">borrar</a></td>
+                <td><a href="/update/{{i.ShipperID}}">actualizar</a></td>
+            </tr>   
+        </tbody>
+    </table>
+
+    <a href="/add/">Agregar nuevo Transportista</a>
+</div>
+
